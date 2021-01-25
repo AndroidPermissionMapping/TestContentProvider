@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="de.cispa.testcontentprovider">
+
+    <permission
+        android:name="de.cispa.testcontentprovider.permission.READ_SAMPLES"
+        android:protectionLevel="dangerous" />
+
+    <permission
+        android:name="de.cispa.testcontentprovider.permission.WRITE_SAMPLES"
+        android:protectionLevel="dangerous" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.TestContentProvider">
+
+        <provider
+            android:name="de.cispa.testcontentprovider.RwProtectedContentProvider"
+            android:authorities="de.cispa.testcontentprovider.rw_protected_provider"
+            android:exported="true"
+            android:readPermission="de.cispa.testcontentprovider.permission.READ_SAMPLES"
+            android:writePermission="de.cispa.testcontentprovider.permission.WRITE_SAMPLES" />
+
+        <provider
+            android:name="de.cispa.testcontentprovider.ReadProtectedContentProvider"
+            android:authorities="de.cispa.testcontentprovider.read_protected_provider"
+            android:exported="true"
+            android:readPermission="de.cispa.testcontentprovider.permission.READ_SAMPLES" />
+
+        <provider
+            android:name="de.cispa.testcontentprovider.WriteProtectedContentProvider"
+            android:authorities="de.cispa.testcontentprovider.write_protected_provider"
+            android:exported="true"
+            android:writePermission="de.cispa.testcontentprovider.permission.WRITE_SAMPLES" />
+
+        <provider
+            android:name="de.cispa.testcontentprovider.PrivateContentProvider"
+            android:authorities="de.cispa.testcontentprovider.private_provider"
+            android:exported="false" />
+
+        <provider
+            android:name="de.cispa.testcontentprovider.DynamicallyProtectedContentProvider"
+            android:authorities="de.cispa.testcontentprovider.dynamically_protected_provider"
+            android:exported="true"/>
+
+    </application>
+
+</manifest>
